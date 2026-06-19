@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:book",
+    "minecraft:compass"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:written_book",
+    "components": {
+      "minecraft:custom_name": {
+        "translate": "item.radial_teleport.manual"
+      },
+      "guide_lib:guide_access": {
+        "kind": "manual",
+        "book": "radial_teleport:radial_teleport",
+        "theme": "guide_lib:book"
+      }
+    }
+  }
+}

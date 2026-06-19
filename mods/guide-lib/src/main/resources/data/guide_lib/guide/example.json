@@ -1,0 +1,67 @@
+{
+  "name": "guide_lib.book.example",
+  "description": "guide_lib.book.example.desc",
+  "dev_only": true,
+  "icon": "minecraft:book",
+  "sort_priority": 0,
+  "list_columns": 2,
+  "categories": [
+    {
+      "id": "basics",
+      "name": "guide_lib.category.example.basics",
+      "entries": ["welcome", "pages", "codex"]
+    }
+  ],
+  "entries": {
+    "welcome": {
+      "name": "guide_lib.entry.example.welcome",
+      "icon": "minecraft:writable_book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.example.page.welcome.p1"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.example.page.welcome.p2"
+        }
+      ]
+    },
+    "pages": {
+      "name": "guide_lib.entry.example.pages",
+      "icon": "minecraft:crafting_table",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.example.page.pages.text"
+        },
+        {
+          "type": "crafting",
+          "recipe": "guide_lib:codex"
+        },
+        {
+          "type": "spotlight",
+          "item": "minecraft:book",
+          "text": "guide_lib.example.page.pages.spotlight"
+        },
+        {
+          "type": "image",
+          "image": "guide_lib:item/codex_tablet_screen",
+          "width": 16,
+          "height": 16,
+          "text": "guide_lib.example.page.pages.image"
+        }
+      ]
+    },
+    "codex": {
+      "name": "guide_lib.entry.example.codex",
+      "icon": "minecraft:book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.example.page.codex.p1"
+        }
+      ]
+    }
+  }
+}

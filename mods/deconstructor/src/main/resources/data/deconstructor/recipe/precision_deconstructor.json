@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ODO",
+    "DAD",
+    "ODO"
+  ],
+  "key": {
+    "A": "deconstructor:deconstructor",
+    "D": "minecraft:diamond",
+    "O": "minecraft:obsidian"
+  },
+  "result": {
+    "count": 1,
+    "id": "deconstructor:precision_deconstructor"
+  }
+}

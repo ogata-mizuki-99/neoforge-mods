@@ -1,0 +1,599 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "obsidian": "minecraft:block/obsidian",
+    "enchant_table_side": "minecraft:block/enchanting_table_side",
+    "enchant_table_top": "minecraft:block/enchanting_table_top",
+    "gold": "minecraft:block/gold_block",
+    "particle": "minecraft:block/enchanting_table_side"
+  },
+  "elements": [
+    {
+      "name": "base_plate",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "down": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#obsidian",
+          "cullface": "down"
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#obsidian"
+        },
+        "north": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#obsidian",
+          "cullface": "north"
+        },
+        "south": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#obsidian",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#obsidian",
+          "cullface": "west"
+        },
+        "east": {
+          "uv": [
+            0,
+            14,
+            16,
+            16
+          ],
+          "texture": "#obsidian",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "name": "pillar_nw",
+      "from": [
+        2,
+        2,
+        2
+      ],
+      "to": [
+        4,
+        12,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "south": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "west": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "east": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        }
+      }
+    },
+    {
+      "name": "pillar_ne",
+      "from": [
+        12,
+        2,
+        2
+      ],
+      "to": [
+        14,
+        12,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "south": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "west": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "east": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        }
+      }
+    },
+    {
+      "name": "pillar_sw",
+      "from": [
+        2,
+        2,
+        12
+      ],
+      "to": [
+        4,
+        12,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "south": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "west": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "east": {
+          "uv": [
+            2,
+            6,
+            4,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        }
+      }
+    },
+    {
+      "name": "pillar_se",
+      "from": [
+        12,
+        2,
+        12
+      ],
+      "to": [
+        14,
+        12,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "south": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "west": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "east": {
+          "uv": [
+            12,
+            6,
+            14,
+            16
+          ],
+          "texture": "#enchant_table_side"
+        }
+      }
+    },
+    {
+      "name": "table_top",
+      "from": [
+        1,
+        12,
+        1
+      ],
+      "to": [
+        15,
+        14,
+        15
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture": "#enchant_table_top"
+        },
+        "down": {
+          "uv": [
+            1,
+            1,
+            15,
+            15
+          ],
+          "texture": "#obsidian"
+        },
+        "north": {
+          "uv": [
+            1,
+            12,
+            15,
+            14
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "south": {
+          "uv": [
+            1,
+            12,
+            15,
+            14
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "west": {
+          "uv": [
+            1,
+            12,
+            15,
+            14
+          ],
+          "texture": "#enchant_table_side"
+        },
+        "east": {
+          "uv": [
+            1,
+            12,
+            15,
+            14
+          ],
+          "texture": "#enchant_table_side"
+        }
+      }
+    },
+    {
+      "name": "gold_nw",
+      "from": [
+        1,
+        14,
+        1
+      ],
+      "to": [
+        3,
+        15,
+        3
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            1,
+            1,
+            3,
+            3
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        }
+      }
+    },
+    {
+      "name": "gold_ne",
+      "from": [
+        13,
+        14,
+        1
+      ],
+      "to": [
+        15,
+        15,
+        3
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            13,
+            1,
+            15,
+            3
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        }
+      }
+    },
+    {
+      "name": "gold_sw",
+      "from": [
+        1,
+        14,
+        13
+      ],
+      "to": [
+        3,
+        15,
+        15
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            1,
+            13,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            1,
+            14,
+            3,
+            15
+          ],
+          "texture": "#gold"
+        }
+      }
+    },
+    {
+      "name": "gold_se",
+      "from": [
+        13,
+        14,
+        13
+      ],
+      "to": [
+        15,
+        15,
+        15
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            13,
+            13,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "north": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "south": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "west": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        },
+        "east": {
+          "uv": [
+            13,
+            14,
+            15,
+            15
+          ],
+          "texture": "#gold"
+        }
+      }
+    }
+  ]
+}

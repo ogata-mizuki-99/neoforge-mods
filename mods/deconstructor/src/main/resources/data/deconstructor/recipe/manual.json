@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:book",
+    "minecraft:crafting_table"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:written_book",
+    "components": {
+      "minecraft:custom_name": {
+        "translate": "item.deconstructor.manual"
+      },
+      "guide_lib:guide_access": {
+        "kind": "manual",
+        "book": "deconstructor:deconstructor",
+        "theme": "guide_lib:book"
+      }
+    }
+  }
+}

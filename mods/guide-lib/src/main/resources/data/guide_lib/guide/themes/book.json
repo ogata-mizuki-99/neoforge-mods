@@ -1,0 +1,20 @@
+{
+  "colors": {
+    "title": "#B8860B",
+    "subtitle": "#2A1810",
+    "body": "#2A1810",
+    "muted": "#6B5344",
+    "accent": "#C9A227",
+    "link": "#1E5A8E",
+    "link_hover": "#B8860B",
+    "panel_bg": "#5C4033",
+    "inner_bg": "#F2E0C4",
+    "dim_overlay": "#B0282018",
+    "slot_inner": "#E0CFA8"
+  },
+  "frame": "paper",
+  "sounds": {
+    "open": "guide_lib:codex_open",
+    "page_turn": "guide_lib:codex_page"
+  }
+}

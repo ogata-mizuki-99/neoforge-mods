@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "show_notification": true,
+  "ingredients": [
+    "minecraft:written_book",
+    "minecraft:redstone",
+    "minecraft:glass_pane"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:written_book",
+    "components": {
+      "minecraft:custom_name": {
+        "translate": "item.guide_lib.codex_tablet"
+      },
+      "guide_lib:guide_access": {
+        "kind": "codex",
+        "theme": "guide_lib:tablet"
+      },
+      "minecraft:item_model": "guide_lib:codex_tablet"
+    }
+  }
+}

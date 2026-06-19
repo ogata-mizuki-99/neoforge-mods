@@ -1,0 +1,21 @@
+{
+  "extends": "guide_lib:book",
+  "colors": {
+    "title": "#00E5FF",
+    "subtitle": "#80CFFF",
+    "body": "#B0E0FF",
+    "muted": "#6699BB",
+    "accent": "#00AAFF",
+    "link": "#00CCFF",
+    "link_hover": "#FFFFFF",
+    "panel_bg": "#0A1628",
+    "inner_bg": "#050D18",
+    "dim_overlay": "#C0081018",
+    "slot_inner": "#020810"
+  },
+  "frame": "tablet",
+  "sounds": {
+    "open": "guide_lib:tablet_open",
+    "page_turn": "guide_lib:tablet_beep"
+  }
+}

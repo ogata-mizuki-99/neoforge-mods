@@ -1,0 +1,13 @@
+{
+  "good_sleep.configuration.title": "Good Sleep Configuration",
+  "good_sleep.configuration.section.good.sleep.common.toml": "Common Settings",
+  "good_sleep.configuration.section.good.sleep.common.toml.title": "Good Sleep Common Configuration",
+  "good_sleep.configuration.allowDaySleep": "Allow sleeping during day and morning. Sleeping in daylight advances time to night; sleeping at night advances to morning.",
+  "good_sleep.configuration.allowDaySleep.tooltip": "Allow sleeping during day and morning. Sleeping in daylight advances time to night; sleeping at night advances to morning.",
+  "good_sleep.configuration.healWhileSleeping": "Restore health while sleeping in a bed.",
+  "good_sleep.configuration.healWhileSleeping.tooltip": "Restore health while sleeping in a bed.",
+  "good_sleep.configuration.healIntervalTicks": "Health restore interval while sleeping (ticks). 20 ticks = 1 second. 0 = full heal the moment you lie down.",
+  "good_sleep.configuration.healIntervalTicks.tooltip": "Health restore interval while sleeping (ticks). 20 ticks = 1 second. 0 = full heal the moment you lie down.",
+  "good_sleep.configuration.onePlayerSkip": "Allow one player to skip the night in multiplayer (sets playersSleepingPercentage to 0).",
+  "good_sleep.configuration.onePlayerSkip.tooltip": "Allow one player to skip the night in multiplayer (sets playersSleepingPercentage to 0)."
+}

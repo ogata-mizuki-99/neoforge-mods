@@ -1,0 +1,36 @@
+name: Build public mods
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mod:
+          - guide-lib
+          - deconstructor
+          - radial-teleport
+          - good-sleep
+          - elytra-slot
+          - private-chest
+          - nickname
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build ${{ matrix.mod }}
+        run: ./gradlew :${{ matrix.mod }}:build --no-daemon

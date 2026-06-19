@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "TCT",
+    "ICI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "C": "minecraft:chest",
+    "T": "minecraft:iron_trapdoor"
+  },
+  "result": {
+    "count": 1,
+    "id": "privatechest:locker"
+  }
+}

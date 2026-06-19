@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:book",
+    "minecraft:chest"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:written_book",
+    "components": {
+      "minecraft:custom_name": {
+        "translate": "item.privatechest.manual"
+      },
+      "guide_lib:guide_access": {
+        "kind": "manual",
+        "book": "privatechest:privatechest",
+        "theme": "guide_lib:book"
+      }
+    }
+  }
+}

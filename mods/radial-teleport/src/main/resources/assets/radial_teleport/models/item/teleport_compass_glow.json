@@ -1,0 +1,83 @@
+{
+  "textures": {
+    "glow": "radial_teleport:item/teleport_compass_glow"
+  },
+  "elements": [
+    {
+      "comment": "Dial glow",
+      "from": [3.5, 2.4, 3.5],
+      "to": [12.5, 3.6, 12.5],
+      "faces": {
+        "up": { "texture": "#glow", "uv": [4, 4, 12, 12] }
+      }
+    },
+    {
+      "comment": "Dome glow",
+      "from": [4, 3.4, 4],
+      "to": [12, 4.6, 12],
+      "faces": {
+        "north": { "texture": "#glow", "uv": [5, 11, 11, 12] },
+        "south": { "texture": "#glow", "uv": [5, 11, 11, 12] },
+        "east": { "texture": "#glow", "uv": [5, 11, 11, 12] },
+        "west": { "texture": "#glow", "uv": [5, 11, 11, 12] },
+        "up": { "texture": "#glow", "uv": [5, 5, 11, 11] }
+      }
+    },
+    {
+      "comment": "Needle glow",
+      "from": [7, 4.4, 3.5],
+      "to": [9, 6.6, 9.5],
+      "faces": {
+        "north": { "texture": "#glow", "uv": [7, 6, 9, 10] },
+        "east": { "texture": "#glow", "uv": [7, 6, 9, 10] },
+        "west": { "texture": "#glow", "uv": [7, 6, 9, 10] },
+        "up": { "texture": "#glow", "uv": [7, 7, 9, 9] }
+      }
+    },
+    {
+      "comment": "Rim glow ring",
+      "from": [2.5, 1.4, 2.5],
+      "to": [13.5, 2.6, 13.5],
+      "faces": {
+        "up": { "texture": "#glow", "uv": [3, 3, 13, 13] }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [25, 225, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [1.05, 1.05, 1.05]
+    },
+    "ground": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 2, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "fixed": {
+      "rotation": [0, 180, 0],
+      "translation": [0, 1, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "thirdperson_righthand": {
+      "rotation": [45, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [45, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.75, 0.75, 0.75]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 225, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.75, 0.75, 0.75]
+    }
+  }
+}

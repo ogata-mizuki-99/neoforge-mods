@@ -1,0 +1,138 @@
+{
+  "name": "guide_lib.book.deconstructor",
+  "description": "guide_lib.book.deconstructor.desc",
+  "icon": "deconstructor:deconstructor",
+  "sort_priority": 20,
+  "list_columns": 2,
+  "categories": [
+    {
+      "id": "main",
+      "name": "guide_lib.category.deconstructor.main",
+      "entries": [
+        "overview",
+        "guide_items",
+        "deconstructor",
+        "precision_deconstructor",
+        "enchant_manager",
+        "enchant_operations"
+      ]
+    }
+  ],
+  "entries": {
+    "overview": {
+      "name": "guide_lib.entry.deconstructor.overview",
+      "icon": "minecraft:crafting_table",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.overview.p1"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.overview.p2"
+        }
+      ]
+    },
+    "guide_items": {
+      "name": "guide_lib.entry.deconstructor.guide_items",
+      "icon": "minecraft:book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.guide_items.manual"
+        },
+        {
+          "type": "crafting",
+          "recipe": "deconstructor:manual"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.guide_items.codex_tablet"
+        },
+        {
+          "type": "crafting",
+          "recipe": "guide_lib:codex_tablet"
+        }
+      ]
+    },
+    "deconstructor": {
+      "name": "guide_lib.entry.deconstructor.deconstructor",
+      "icon": "deconstructor:deconstructor",
+      "pages": [
+        {
+          "type": "spotlight",
+          "item": "deconstructor:deconstructor",
+          "text": "guide_lib.deconstructor.page.deconstructor.spotlight"
+        },
+        {
+          "type": "crafting",
+          "recipe": "deconstructor:deconstructor"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.deconstructor.usage"
+        }
+      ]
+    },
+    "precision_deconstructor": {
+      "name": "guide_lib.entry.deconstructor.precision_deconstructor",
+      "icon": "deconstructor:precision_deconstructor",
+      "pages": [
+        {
+          "type": "spotlight",
+          "item": "deconstructor:precision_deconstructor",
+          "text": "guide_lib.deconstructor.page.precision_deconstructor.spotlight"
+        },
+        {
+          "type": "crafting",
+          "recipe": "deconstructor:precision_deconstructor"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.precision_deconstructor.usage"
+        }
+      ]
+    },
+    "enchant_manager": {
+      "name": "guide_lib.entry.deconstructor.enchant_manager",
+      "icon": "deconstructor:enchant_manager",
+      "pages": [
+        {
+          "type": "spotlight",
+          "item": "deconstructor:enchant_manager",
+          "text": "guide_lib.deconstructor.page.enchant_manager.spotlight"
+        },
+        {
+          "type": "crafting",
+          "recipe": "deconstructor:enchant_manager"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.enchant_manager.slots"
+        }
+      ]
+    },
+    "enchant_operations": {
+      "name": "guide_lib.entry.deconstructor.enchant_operations",
+      "icon": "minecraft:enchanted_book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.enchant_operations.extract"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.enchant_operations.split"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.enchant_operations.merge"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.deconstructor.page.enchant_operations.apply"
+        }
+      ]
+    }
+  }
+}

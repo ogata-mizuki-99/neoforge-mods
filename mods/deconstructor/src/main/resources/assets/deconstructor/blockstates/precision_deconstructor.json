@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "deconstructor:block/precision_deconstructor" }
+  }
+}

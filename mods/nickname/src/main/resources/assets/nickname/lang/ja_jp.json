@@ -1,0 +1,9 @@
+{
+  "fml.menu.mods.info.nickname": "ニックネームオーバーライドMOD",
+  "nickname.message.reset": "ニックネームをリセットしました。",
+  "nickname.message.set": "ニックネームを「%s」に設定しました。",
+  "nickname.message.cleared_all": "すべてのニックネーム設定をクリアしました。",
+  "nickname.message.too_long": "ニックネームは %s 文字以内にしてください。",
+  "nickname.message.no_formatting": "ニックネームに書式コードは使えません。",
+  "nickname.message.invalid": "そのニックネームは使用できません。"
+}

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,part=bottom": { "model": "privatechest:block/locker_bottom", "y": 180 },
+    "facing=south,part=bottom": { "model": "privatechest:block/locker_bottom" },
+    "facing=west,part=bottom": { "model": "privatechest:block/locker_bottom", "y": 90 },
+    "facing=east,part=bottom": { "model": "privatechest:block/locker_bottom", "y": 270 },
+    "facing=north,part=middle": { "model": "privatechest:block/locker_middle", "y": 180 },
+    "facing=south,part=middle": { "model": "privatechest:block/locker_middle" },
+    "facing=west,part=middle": { "model": "privatechest:block/locker_middle", "y": 90 },
+    "facing=east,part=middle": { "model": "privatechest:block/locker_middle", "y": 270 }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "guide_lib.book.radial_teleport",
+  "description": "guide_lib.book.radial_teleport.desc",
+  "icon": "radial_teleport:teleport_compass",
+  "sort_priority": 22,
+  "list_columns": 2,
+  "categories": [
+    {
+      "id": "main",
+      "name": "guide_lib.category.radial_teleport.main",
+      "entries": [
+        "overview",
+        "guide_items",
+        "teleport_compass",
+        "waypoints"
+      ]
+    }
+  ],
+  "entries": {
+    "overview": {
+      "name": "guide_lib.entry.radial_teleport.overview",
+      "icon": "minecraft:compass",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.overview.p1"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.overview.p2"
+        }
+      ]
+    },
+    "guide_items": {
+      "name": "guide_lib.entry.radial_teleport.guide_items",
+      "icon": "minecraft:book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.guide_items.manual"
+        },
+        {
+          "type": "crafting",
+          "recipe": "radial_teleport:manual"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.guide_items.codex_tablet"
+        },
+        {
+          "type": "crafting",
+          "recipe": "guide_lib:codex_tablet"
+        }
+      ]
+    },
+    "teleport_compass": {
+      "name": "guide_lib.entry.radial_teleport.teleport_compass",
+      "icon": "radial_teleport:teleport_compass",
+      "pages": [
+        {
+          "type": "spotlight",
+          "item": "radial_teleport:teleport_compass",
+          "text": "guide_lib.radial_teleport.page.teleport_compass.spotlight"
+        },
+        {
+          "type": "crafting",
+          "recipe": "radial_teleport:teleport_compass"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.teleport_compass.usage"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.teleport_compass.destinations"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.teleport_compass.config"
+        }
+      ]
+    },
+    "waypoints": {
+      "name": "guide_lib.entry.radial_teleport.waypoints",
+      "icon": "minecraft:ender_pearl",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.waypoints.p1"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.waypoints.p2"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.radial_teleport.page.waypoints.p3"
+        }
+      ]
+    }
+  }
+}

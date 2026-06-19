@@ -1,0 +1,13 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.141' apply false
+}
+
+tasks.named('wrapper', Wrapper).configure {
+    distributionType = Wrapper.DistributionType.BIN
+}
+
+subprojects {
+    tasks.withType(ProcessResources).configureEach {
+        filteringCharset = 'UTF-8'
+    }
+}

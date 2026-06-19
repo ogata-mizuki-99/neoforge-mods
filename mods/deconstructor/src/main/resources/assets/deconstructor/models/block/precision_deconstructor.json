@@ -1,0 +1,234 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "obsidian": "minecraft:block/obsidian",
+    "diamond": "minecraft:block/diamond_block",
+    "iron": "minecraft:block/iron_block",
+    "piston_top": "minecraft:block/piston_top",
+    "piston_side": "minecraft:block/piston_side",
+    "particle": "minecraft:block/obsidian"
+  },
+  "elements": [
+    {
+      "name": "base_plate",
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "down":  {"uv": [0, 0, 16, 16], "texture": "#obsidian", "cullface": "down"},
+        "up":    {"uv": [0, 0, 16, 16], "texture": "#obsidian"},
+        "north": {"uv": [0, 14, 16, 16], "texture": "#obsidian", "cullface": "north"},
+        "south": {"uv": [0, 14, 16, 16], "texture": "#obsidian", "cullface": "south"},
+        "west":  {"uv": [0, 14, 16, 16], "texture": "#obsidian", "cullface": "west"},
+        "east":  {"uv": [0, 14, 16, 16], "texture": "#obsidian", "cullface": "east"}
+      }
+    },
+    {
+      "name": "leg_nw",
+      "from": [0, 2, 0],
+      "to": [2, 14, 2],
+      "faces": {
+        "up":    {"uv": [0, 0, 2, 2], "texture": "#obsidian"},
+        "north": {"uv": [0, 2, 2, 14], "texture": "#obsidian", "cullface": "north"},
+        "south": {"uv": [0, 2, 2, 14], "texture": "#obsidian"},
+        "west":  {"uv": [0, 2, 2, 14], "texture": "#obsidian", "cullface": "west"},
+        "east":  {"uv": [0, 2, 2, 14], "texture": "#obsidian"}
+      }
+    },
+    {
+      "name": "leg_ne",
+      "from": [14, 2, 0],
+      "to": [16, 14, 2],
+      "faces": {
+        "up":    {"uv": [14, 0, 16, 2], "texture": "#obsidian"},
+        "north": {"uv": [14, 2, 16, 14], "texture": "#obsidian", "cullface": "north"},
+        "south": {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "west":  {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "east":  {"uv": [14, 2, 16, 14], "texture": "#obsidian", "cullface": "east"}
+      }
+    },
+    {
+      "name": "leg_sw",
+      "from": [0, 2, 14],
+      "to": [2, 14, 16],
+      "faces": {
+        "up":    {"uv": [0, 14, 2, 16], "texture": "#obsidian"},
+        "north": {"uv": [0, 2, 2, 14], "texture": "#obsidian"},
+        "south": {"uv": [0, 2, 2, 14], "texture": "#obsidian", "cullface": "south"},
+        "west":  {"uv": [0, 2, 2, 14], "texture": "#obsidian", "cullface": "west"},
+        "east":  {"uv": [0, 2, 2, 14], "texture": "#obsidian"}
+      }
+    },
+    {
+      "name": "leg_se",
+      "from": [14, 2, 14],
+      "to": [16, 14, 16],
+      "faces": {
+        "up":    {"uv": [14, 14, 16, 16], "texture": "#obsidian"},
+        "north": {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "south": {"uv": [14, 2, 16, 14], "texture": "#obsidian", "cullface": "south"},
+        "west":  {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "east":  {"uv": [14, 2, 16, 14], "texture": "#obsidian", "cullface": "east"}
+      }
+    },
+    {
+      "name": "rim_north",
+      "from": [0, 14, 0],
+      "to": [16, 16, 2],
+      "faces": {
+        "up":    {"uv": [0, 0, 16, 2], "texture": "#obsidian", "cullface": "up"},
+        "down":  {"uv": [0, 0, 16, 2], "texture": "#obsidian"},
+        "north": {"uv": [0, 0, 16, 2], "texture": "#obsidian", "cullface": "north"},
+        "south": {"uv": [0, 0, 16, 2], "texture": "#obsidian"},
+        "west":  {"uv": [0, 0, 2, 2], "texture": "#obsidian", "cullface": "west"},
+        "east":  {"uv": [14, 0, 16, 2], "texture": "#obsidian", "cullface": "east"}
+      }
+    },
+    {
+      "name": "rim_south",
+      "from": [0, 14, 14],
+      "to": [16, 16, 16],
+      "faces": {
+        "up":    {"uv": [0, 14, 16, 16], "texture": "#obsidian", "cullface": "up"},
+        "down":  {"uv": [0, 14, 16, 16], "texture": "#obsidian"},
+        "north": {"uv": [0, 14, 16, 16], "texture": "#obsidian"},
+        "south": {"uv": [0, 14, 16, 16], "texture": "#obsidian", "cullface": "south"},
+        "west":  {"uv": [0, 14, 2, 16], "texture": "#obsidian", "cullface": "west"},
+        "east":  {"uv": [14, 14, 16, 16], "texture": "#obsidian", "cullface": "east"}
+      }
+    },
+    {
+      "name": "rim_west",
+      "from": [0, 14, 2],
+      "to": [2, 16, 14],
+      "faces": {
+        "up":    {"uv": [0, 2, 2, 14], "texture": "#obsidian", "cullface": "up"},
+        "down":  {"uv": [0, 2, 2, 14], "texture": "#obsidian"},
+        "north": {"uv": [0, 2, 2, 14], "texture": "#obsidian"},
+        "south": {"uv": [0, 2, 2, 14], "texture": "#obsidian"},
+        "west":  {"uv": [0, 2, 2, 14], "texture": "#obsidian", "cullface": "west"},
+        "east":  {"uv": [0, 2, 2, 14], "texture": "#obsidian"}
+      }
+    },
+    {
+      "name": "rim_east",
+      "from": [14, 14, 2],
+      "to": [16, 16, 14],
+      "faces": {
+        "up":    {"uv": [14, 2, 16, 14], "texture": "#obsidian", "cullface": "up"},
+        "down":  {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "north": {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "south": {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "west":  {"uv": [14, 2, 16, 14], "texture": "#obsidian"},
+        "east":  {"uv": [14, 2, 16, 14], "texture": "#obsidian", "cullface": "east"}
+      }
+    },
+    {
+      "name": "diamond_tray",
+      "from": [2, 2, 2],
+      "to": [14, 4, 14],
+      "faces": {
+        "up":    {"uv": [2, 2, 14, 14], "texture": "#diamond"},
+        "north": {"uv": [2, 2, 14, 4], "texture": "#diamond"},
+        "south": {"uv": [2, 2, 14, 4], "texture": "#diamond"},
+        "west":  {"uv": [2, 2, 14, 4], "texture": "#diamond"},
+        "east":  {"uv": [2, 2, 14, 4], "texture": "#diamond"}
+      }
+    },
+    {
+      "name": "crystal_nw",
+      "from": [0, 16, 0],
+      "to": [2, 18, 2],
+      "faces": {
+        "up":    {"uv": [0, 0, 2, 2], "texture": "#diamond"},
+        "north": {"uv": [0, 0, 2, 2], "texture": "#diamond"},
+        "south": {"uv": [0, 0, 2, 2], "texture": "#diamond"},
+        "west":  {"uv": [0, 0, 2, 2], "texture": "#diamond"},
+        "east":  {"uv": [0, 0, 2, 2], "texture": "#diamond"}
+      }
+    },
+    {
+      "name": "crystal_ne",
+      "from": [14, 16, 0],
+      "to": [16, 18, 2],
+      "faces": {
+        "up":    {"uv": [14, 0, 16, 2], "texture": "#diamond"},
+        "north": {"uv": [14, 0, 16, 2], "texture": "#diamond"},
+        "south": {"uv": [14, 0, 16, 2], "texture": "#diamond"},
+        "west":  {"uv": [14, 0, 16, 2], "texture": "#diamond"},
+        "east":  {"uv": [14, 0, 16, 2], "texture": "#diamond"}
+      }
+    },
+    {
+      "name": "crystal_sw",
+      "from": [0, 16, 14],
+      "to": [2, 18, 16],
+      "faces": {
+        "up":    {"uv": [0, 14, 2, 16], "texture": "#diamond"},
+        "north": {"uv": [0, 14, 2, 16], "texture": "#diamond"},
+        "south": {"uv": [0, 14, 2, 16], "texture": "#diamond"},
+        "west":  {"uv": [0, 14, 2, 16], "texture": "#diamond"},
+        "east":  {"uv": [0, 14, 2, 16], "texture": "#diamond"}
+      }
+    },
+    {
+      "name": "crystal_se",
+      "from": [14, 16, 14],
+      "to": [16, 18, 16],
+      "faces": {
+        "up":    {"uv": [14, 14, 16, 16], "texture": "#diamond"},
+        "north": {"uv": [14, 14, 16, 16], "texture": "#diamond"},
+        "south": {"uv": [14, 14, 16, 16], "texture": "#diamond"},
+        "west":  {"uv": [14, 14, 16, 16], "texture": "#diamond"},
+        "east":  {"uv": [14, 14, 16, 16], "texture": "#diamond"}
+      }
+    },
+    {
+      "name": "piston_shaft_l",
+      "from": [5, 10, 7],
+      "to": [7, 14, 9],
+      "faces": {
+        "up":    {"uv": [5, 7, 7, 9], "texture": "#iron"},
+        "down":  {"uv": [5, 7, 7, 9], "texture": "#iron"},
+        "north": {"uv": [5, 10, 7, 14], "texture": "#iron"},
+        "south": {"uv": [5, 10, 7, 14], "texture": "#iron"},
+        "west":  {"uv": [5, 10, 7, 14], "texture": "#iron"},
+        "east":  {"uv": [5, 10, 7, 14], "texture": "#iron"}
+      }
+    },
+    {
+      "name": "piston_shaft_r",
+      "from": [9, 10, 7],
+      "to": [11, 14, 9],
+      "faces": {
+        "up":    {"uv": [9, 7, 11, 9], "texture": "#iron"},
+        "down":  {"uv": [9, 7, 11, 9], "texture": "#iron"},
+        "north": {"uv": [9, 10, 11, 14], "texture": "#iron"},
+        "south": {"uv": [9, 10, 11, 14], "texture": "#iron"},
+        "west":  {"uv": [9, 10, 11, 14], "texture": "#iron"},
+        "east":  {"uv": [9, 10, 11, 14], "texture": "#iron"}
+      }
+    },
+    {
+      "name": "top_plate",
+      "from": [2, 14, 2],
+      "to": [14, 16, 14],
+      "faces": {
+        "up":    {"uv": [2, 2, 14, 14], "texture": "#obsidian", "cullface": "up"},
+        "down":  {"uv": [2, 2, 14, 14], "texture": "#obsidian"}
+      }
+    },
+    {
+      "name": "precision_crusher",
+      "from": [3, 6, 4],
+      "to": [13, 10, 12],
+      "faces": {
+        "up":    {"uv": [3, 4, 13, 12], "texture": "#piston_top"},
+        "down":  {"uv": [3, 4, 13, 12], "texture": "#diamond"},
+        "north": {"uv": [3, 6, 13, 10], "texture": "#piston_side"},
+        "south": {"uv": [3, 6, 13, 10], "texture": "#piston_side"},
+        "west":  {"uv": [3, 6, 13, 10], "texture": "#piston_side"},
+        "east":  {"uv": [3, 6, 13, 10], "texture": "#piston_side"}
+      }
+    }
+  ]
+}

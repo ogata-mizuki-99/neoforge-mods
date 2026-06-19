@@ -1,0 +1,32 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
+}
+
+rootProject.name = 'ogatamizuki-neoforge-mods'
+
+include 'guide-lib'
+project(':guide-lib').projectDir = file('mods/guide-lib')
+
+include 'deconstructor'
+project(':deconstructor').projectDir = file('mods/deconstructor')
+
+include 'radial-teleport'
+project(':radial-teleport').projectDir = file('mods/radial-teleport')
+
+include 'good-sleep'
+project(':good-sleep').projectDir = file('mods/good-sleep')
+
+include 'elytra-slot'
+project(':elytra-slot').projectDir = file('mods/elytra-slot')
+
+include 'private-chest'
+project(':private-chest').projectDir = file('mods/private-chest')
+
+include 'nickname'
+project(':nickname').projectDir = file('mods/nickname')

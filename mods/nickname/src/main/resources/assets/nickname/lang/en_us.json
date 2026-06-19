@@ -1,0 +1,9 @@
+{
+  "fml.menu.mods.info.nickname": "Nickname Override Mod",
+  "nickname.message.reset": "Nickname reset.",
+  "nickname.message.set": "Nickname set to \"%s\".",
+  "nickname.message.cleared_all": "Cleared all nickname settings.",
+  "nickname.message.too_long": "Nickname must be %s characters or fewer.",
+  "nickname.message.no_formatting": "Formatting codes are not allowed in nicknames.",
+  "nickname.message.invalid": "That nickname is not allowed."
+}

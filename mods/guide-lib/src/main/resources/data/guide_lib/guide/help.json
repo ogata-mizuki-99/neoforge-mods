@@ -1,0 +1,43 @@
+{
+  "name": "guide_lib.book.help",
+  "description": "guide_lib.book.help.desc",
+  "codex_visible": false,
+  "icon": "minecraft:writable_book",
+  "sort_priority": -1,
+  "categories": [
+    {
+      "id": "main",
+      "name": "guide_lib.category.help.main",
+      "entries": [
+        "codex",
+        "manual"
+      ]
+    }
+  ],
+  "entries": {
+    "codex": {
+      "name": "guide_lib.entry.help.codex",
+      "icon": "guide_lib:codex",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.help.page.codex.p1"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.help.page.codex.p2"
+        }
+      ]
+    },
+    "manual": {
+      "name": "guide_lib.entry.help.manual",
+      "icon": "minecraft:written_book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.help.page.manual.p1"
+        }
+      ]
+    }
+  }
+}

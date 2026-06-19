@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "deconstructor:precision_deconstructor",
+    "minecraft:enchanting_table"
+  ],
+  "result": {
+    "count": 1,
+    "id": "deconstructor:enchant_manager"
+  }
+}

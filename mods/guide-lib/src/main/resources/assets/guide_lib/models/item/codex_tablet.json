@@ -1,0 +1,137 @@
+{
+  "textures": {
+    "body": "guide_lib:item/codex_tablet_body",
+    "screen": "guide_lib:item/codex_tablet_screen",
+    "accent": "guide_lib:item/codex_tablet_accent",
+    "particle": "guide_lib:item/codex_tablet_body"
+  },
+  "elements": [
+    {
+      "comment": "本体（south 面なし・側面は z=9.5 まで一体）",
+      "from": [3.5, 0.5, 6.5],
+      "to": [12.5, 15.5, 9.5],
+      "faces": {
+        "north": { "texture": "#body", "uv": [3.5, 0.5, 12.5, 15.5] },
+        "east": { "texture": "#accent", "uv": [6.5, 0.5, 9.5, 15.5] },
+        "west": { "texture": "#accent", "uv": [6.5, 0.5, 9.5, 15.5] },
+        "up": { "texture": "#body", "uv": [3.5, 6.5, 12.5, 9.5] },
+        "down": { "texture": "#body", "uv": [3.5, 6.5, 12.5, 9.5] }
+      }
+    },
+    {
+      "comment": "ベゼル上辺",
+      "from": [3.5, 13.5, 9],
+      "to": [12.5, 15.5, 9.5],
+      "faces": {
+        "north": { "texture": "#body", "uv": [3.5, 13.5, 12.5, 15.5] },
+        "south": { "texture": "#accent", "uv": [3.5, 13.5, 12.5, 15.5] },
+        "east": { "texture": "#accent", "uv": [9, 13.5, 9.5, 15.5] },
+        "west": { "texture": "#accent", "uv": [9, 13.5, 9.5, 15.5] },
+        "up": { "texture": "#accent", "uv": [3.5, 9, 12.5, 9.5] },
+        "down": { "texture": "#accent", "uv": [3.5, 9, 12.5, 9.5] }
+      }
+    },
+    {
+      "comment": "ベゼル下辺",
+      "from": [3.5, 1.5, 9],
+      "to": [12.5, 2.5, 9.5],
+      "faces": {
+        "north": { "texture": "#body", "uv": [3.5, 1.5, 12.5, 2.5] },
+        "south": { "texture": "#accent", "uv": [3.5, 1.5, 12.5, 2.5] },
+        "east": { "texture": "#accent", "uv": [9, 1.5, 9.5, 2.5] },
+        "west": { "texture": "#accent", "uv": [9, 1.5, 9.5, 2.5] },
+        "up": { "texture": "#accent", "uv": [3.5, 9, 12.5, 9.5] },
+        "down": { "texture": "#accent", "uv": [3.5, 9, 12.5, 9.5] }
+      }
+    },
+    {
+      "comment": "ベゼル左辺",
+      "from": [3.5, 2.5, 9],
+      "to": [4, 13.5, 9.5],
+      "faces": {
+        "north": { "texture": "#body", "uv": [3.5, 2.5, 4, 13.5] },
+        "south": { "texture": "#accent", "uv": [3.5, 2.5, 4, 13.5] },
+        "east": { "texture": "#accent", "uv": [9, 2.5, 9.5, 13.5] },
+        "west": { "texture": "#accent", "uv": [9, 2.5, 9.5, 13.5] },
+        "up": { "texture": "#accent", "uv": [3.5, 9, 4, 9.5] },
+        "down": { "texture": "#accent", "uv": [3.5, 9, 4, 9.5] }
+      }
+    },
+    {
+      "comment": "ベゼル右辺",
+      "from": [12, 2.5, 9],
+      "to": [12.5, 13.5, 9.5],
+      "faces": {
+        "north": { "texture": "#body", "uv": [12, 2.5, 12.5, 13.5] },
+        "south": { "texture": "#accent", "uv": [12, 2.5, 12.5, 13.5] },
+        "east": { "texture": "#accent", "uv": [9, 2.5, 9.5, 13.5] },
+        "west": { "texture": "#accent", "uv": [9, 2.5, 9.5, 13.5] },
+        "up": { "texture": "#accent", "uv": [12, 9, 12.5, 9.5] },
+        "down": { "texture": "#accent", "uv": [12, 9, 12.5, 9.5] }
+      }
+    },
+    {
+      "comment": "スクリーン凹み（内側壁で隙間を埋め、south 面のみ発光）",
+      "from": [4, 2.5, 8.5],
+      "to": [12, 13.5, 8.99],
+      "faces": {
+        "north": { "texture": "#body", "uv": [4, 2.5, 12, 13.5] },
+        "south": { "texture": "#screen", "uv": [4, 2.5, 12, 13.5] },
+        "east": { "texture": "#body", "uv": [8.5, 2.5, 9, 13.5] },
+        "west": { "texture": "#body", "uv": [8.5, 2.5, 9, 13.5] },
+        "up": { "texture": "#body", "uv": [4, 8.5, 12, 9] },
+        "down": { "texture": "#body", "uv": [4, 8.5, 12, 9] }
+      }
+    },
+    {
+      "comment": "ホームボタン",
+      "from": [7, 0.5, 9.01],
+      "to": [9, 1.5, 9.49],
+      "faces": {
+        "north": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "south": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "east": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "west": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "up": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "down": { "texture": "#accent", "uv": [7, 7, 9, 9] }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [20, -45, 0],
+      "translation": [0, 1, 0],
+      "scale": [0.95, 0.95, 0.95]
+    },
+    "ground": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 2, 0],
+      "scale": [0.35, 0.35, 0.35]
+    },
+    "fixed": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 1, 0],
+      "scale": [0.55, 0.55, 0.55]
+    },
+    "thirdperson_righthand": {
+      "rotation": [55, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.42, 0.42, 0.42]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [55, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.42, 0.42, 0.42]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, -90, 25],
+      "translation": [1.13, 3.2, 1.13],
+      "scale": [0.68, 0.68, 0.68]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 90, -25],
+      "translation": [1.13, 3.2, 1.13],
+      "scale": [0.68, 0.68, 0.68]
+    }
+  }
+}

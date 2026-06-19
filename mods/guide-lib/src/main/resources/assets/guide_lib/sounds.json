@@ -1,0 +1,38 @@
+{
+  "codex_open": {
+    "subtitle": "subtitles.guide_lib.codex_open",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:item.book.page_turn"
+      }
+    ]
+  },
+  "codex_page": {
+    "subtitle": "subtitles.guide_lib.codex_page",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:item.book.page_turn"
+      }
+    ]
+  },
+  "tablet_open": {
+    "subtitle": "subtitles.guide_lib.tablet_open",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:block.beacon.activate"
+      }
+    ]
+  },
+  "tablet_beep": {
+    "subtitle": "subtitles.guide_lib.tablet_beep",
+    "sounds": [
+      {
+        "type": "event",
+        "name": "minecraft:block.note_block.hat"
+      }
+    ]
+  }
+}

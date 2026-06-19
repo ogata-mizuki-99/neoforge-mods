@@ -1,0 +1,13 @@
+{
+  "good_sleep.configuration.title": "Good Sleep 設定",
+  "good_sleep.configuration.section.good.sleep.common.toml": "共通設定",
+  "good_sleep.configuration.section.good.sleep.common.toml.title": "Good Sleep 共通設定",
+  "good_sleep.configuration.allowDaySleep": "昼間・朝でもベッドで眠れる。明るい時間に眠ると夜へ、夜に眠ると朝へ時間が進む",
+  "good_sleep.configuration.allowDaySleep.tooltip": "昼間・朝でもベッドで眠れる。明るい時間に眠ると夜へ、夜に眠ると朝へ時間が進む",
+  "good_sleep.configuration.healWhileSleeping": "ベッドで眠っている間、体力を回復する",
+  "good_sleep.configuration.healWhileSleeping.tooltip": "ベッドで眠っている間、体力を回復する",
+  "good_sleep.configuration.healIntervalTicks": "睡眠中に体力を回復する間隔（tick）。20 tick = 1 秒。0 のときベッドに横になった瞬間に全回復",
+  "good_sleep.configuration.healIntervalTicks.tooltip": "睡眠中に体力を回復する間隔（tick）。20 tick = 1 秒。0 のときベッドに横になった瞬間に全回復",
+  "good_sleep.configuration.onePlayerSkip": "マルチプレイで1人でも寝れば夜をスキップできる（playersSleepingPercentage を 0 に設定）",
+  "good_sleep.configuration.onePlayerSkip.tooltip": "マルチプレイで1人でも寝れば夜をスキップできる（playersSleepingPercentage を 0 に設定）"
+}

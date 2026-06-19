@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "deconstructor:block/enchant_manager" }
+  }
+}

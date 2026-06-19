@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "privatechest:locker",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "privatechest:locker",
+              "properties": {
+                "part": "bottom"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

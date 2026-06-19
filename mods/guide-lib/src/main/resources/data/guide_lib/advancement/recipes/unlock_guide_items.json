@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:book"
+          }
+        ]
+      }
+    },
+    "has_codex_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "guide_lib:codex"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_book",
+      "has_codex_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "guide_lib:codex",
+      "guide_lib:codex_tablet"
+    ]
+  }
+}

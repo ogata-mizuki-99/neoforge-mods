@@ -1,0 +1,119 @@
+{
+  "textures": {
+    "body": "radial_teleport:item/teleport_compass_body",
+    "dial": "radial_teleport:item/teleport_compass_dial",
+    "accent": "radial_teleport:item/teleport_compass_accent",
+    "particle": "radial_teleport:item/teleport_compass_body"
+  },
+  "elements": [
+    {
+      "comment": "Bronze base plate",
+      "from": [2, 0, 2],
+      "to": [14, 1.5, 14],
+      "faces": {
+        "north": { "texture": "#body", "uv": [2, 14, 14, 15.5] },
+        "south": { "texture": "#body", "uv": [2, 14, 14, 15.5] },
+        "east": { "texture": "#body", "uv": [2, 14, 14, 15.5] },
+        "west": { "texture": "#body", "uv": [2, 14, 14, 15.5] },
+        "up": { "texture": "#body", "uv": [2, 2, 14, 14] },
+        "down": { "texture": "#body", "uv": [2, 2, 14, 14] }
+      }
+    },
+    {
+      "comment": "Outer gold rim",
+      "from": [3, 1.5, 3],
+      "to": [13, 2.5, 13],
+      "faces": {
+        "north": { "texture": "#accent", "uv": [3, 13, 13, 14] },
+        "south": { "texture": "#accent", "uv": [3, 13, 13, 14] },
+        "east": { "texture": "#accent", "uv": [3, 13, 13, 14] },
+        "west": { "texture": "#accent", "uv": [3, 13, 13, 14] },
+        "up": { "texture": "#accent", "uv": [3, 3, 13, 13] }
+      }
+    },
+    {
+      "comment": "Compass dial",
+      "from": [4, 2.5, 4],
+      "to": [12, 3.5, 12],
+      "faces": {
+        "north": { "texture": "#dial", "uv": [4, 12, 12, 13] },
+        "south": { "texture": "#dial", "uv": [4, 12, 12, 13] },
+        "east": { "texture": "#dial", "uv": [4, 12, 12, 13] },
+        "west": { "texture": "#dial", "uv": [4, 12, 12, 13] },
+        "up": { "texture": "#dial", "uv": [4, 4, 12, 12] }
+      }
+    },
+    {
+      "comment": "Glass dome",
+      "from": [4.5, 3.5, 4.5],
+      "to": [11.5, 4.5, 11.5],
+      "faces": {
+        "north": { "texture": "#dial", "uv": [5, 11, 11, 12] },
+        "south": { "texture": "#dial", "uv": [5, 11, 11, 12] },
+        "east": { "texture": "#dial", "uv": [5, 11, 11, 12] },
+        "west": { "texture": "#dial", "uv": [5, 11, 11, 12] },
+        "up": { "texture": "#dial", "uv": [5, 5, 11, 11] }
+      }
+    },
+    {
+      "comment": "Needle hub",
+      "from": [7, 4.5, 7],
+      "to": [9, 6.5, 9],
+      "faces": {
+        "north": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "south": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "east": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "west": { "texture": "#accent", "uv": [7, 7, 9, 9] },
+        "up": { "texture": "#accent", "uv": [7, 7, 9, 9] }
+      }
+    },
+    {
+      "comment": "Needle",
+      "from": [7.5, 4.5, 4],
+      "to": [8.5, 5.5, 7],
+      "faces": {
+        "north": { "texture": "#accent", "uv": [8, 6, 9, 8] },
+        "east": { "texture": "#accent", "uv": [8, 6, 9, 8] },
+        "west": { "texture": "#accent", "uv": [8, 6, 9, 8] },
+        "up": { "texture": "#accent", "uv": [8, 6, 9, 8] }
+      }
+    }
+  ],
+  "display": {
+    "gui": {
+      "rotation": [25, 225, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [1.05, 1.05, 1.05]
+    },
+    "ground": {
+      "rotation": [0, 0, 0],
+      "translation": [0, 2, 0],
+      "scale": [0.4, 0.4, 0.4]
+    },
+    "fixed": {
+      "rotation": [0, 180, 0],
+      "translation": [0, 1, 0],
+      "scale": [0.6, 0.6, 0.6]
+    },
+    "thirdperson_righthand": {
+      "rotation": [45, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [45, 0, 0],
+      "translation": [0, 1.5, 0],
+      "scale": [0.5, 0.5, 0.5]
+    },
+    "firstperson_righthand": {
+      "rotation": [0, 45, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.75, 0.75, 0.75]
+    },
+    "firstperson_lefthand": {
+      "rotation": [0, 225, 0],
+      "translation": [0, 2.5, 0],
+      "scale": [0.75, 0.75, 0.75]
+    }
+  }
+}

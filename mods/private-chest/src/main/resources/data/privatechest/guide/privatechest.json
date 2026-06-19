@@ -1,0 +1,83 @@
+{
+  "name": "guide_lib.book.privatechest",
+  "description": "guide_lib.book.privatechest.desc",
+  "icon": "privatechest:locker",
+  "sort_priority": 25,
+  "list_columns": 2,
+  "categories": [
+    {
+      "id": "main",
+      "name": "guide_lib.category.privatechest.main",
+      "entries": [
+        "overview",
+        "guide_items",
+        "locker"
+      ]
+    }
+  ],
+  "entries": {
+    "overview": {
+      "name": "guide_lib.entry.privatechest.overview",
+      "icon": "minecraft:chest",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.overview.p1"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.overview.p2"
+        }
+      ]
+    },
+    "guide_items": {
+      "name": "guide_lib.entry.privatechest.guide_items",
+      "icon": "minecraft:book",
+      "pages": [
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.guide_items.manual"
+        },
+        {
+          "type": "crafting",
+          "recipe": "privatechest:manual"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.guide_items.codex_tablet"
+        },
+        {
+          "type": "crafting",
+          "recipe": "guide_lib:codex_tablet"
+        }
+      ]
+    },
+    "locker": {
+      "name": "guide_lib.entry.privatechest.locker",
+      "icon": "privatechest:locker",
+      "pages": [
+        {
+          "type": "spotlight",
+          "item": "privatechest:locker",
+          "text": "guide_lib.privatechest.page.locker.spotlight"
+        },
+        {
+          "type": "crafting",
+          "recipe": "privatechest:locker"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.locker.placement"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.locker.usage"
+        },
+        {
+          "type": "text",
+          "text": "guide_lib.privatechest.page.locker.breaking"
+        }
+      ]
+    }
+  }
+}

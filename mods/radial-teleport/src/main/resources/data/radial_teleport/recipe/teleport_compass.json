@@ -1,0 +1,23 @@
+{
+  "neoforge:conditions": [
+    {
+      "type": "radial_teleport:crafting_recipe_enabled"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " E ",
+    "CPE",
+    " E "
+  ],
+  "key": {
+    "E": "minecraft:ender_pearl",
+    "C": "minecraft:compass",
+    "P": "minecraft:echo_shard"
+  },
+  "result": {
+    "count": 1,
+    "id": "radial_teleport:teleport_compass"
+  }
+}
