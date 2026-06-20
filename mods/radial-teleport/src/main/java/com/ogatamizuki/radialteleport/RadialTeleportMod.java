@@ -94,6 +94,11 @@ public class RadialTeleportMod {
     private void registerPayloads(RegisterPayloadHandlersEvent event) {
         PayloadRegistrar registrar = event.registrar("1");
 
+        // サーバー → クライアント: チャンネル定義（Dedicated Server 側必須）
+        registrar.playToClient(TeleportDestinationsPayload.TYPE, TeleportDestinationsPayload.STREAM_CODEC);
+        registrar.playToClient(TeleportResultPayload.TYPE, TeleportResultPayload.STREAM_CODEC);
+        registrar.playToClient(WaypointListPayload.TYPE, WaypointListPayload.STREAM_CODEC);
+
         registrar.playToServer(
                 RequestDestinationsPayload.TYPE,
                 RequestDestinationsPayload.STREAM_CODEC,

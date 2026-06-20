@@ -21,8 +21,7 @@ import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.client.gui.VanillaGuiLayers;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.network.registration.PayloadRegistrar;
+import net.neoforged.neoforge.client.network.event.RegisterClientPayloadHandlersEvent;
 import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
@@ -37,7 +36,7 @@ public class RadialTeleportModClient {
 
         IEventBus modEventBus = container.getEventBus();
         modEventBus.addListener(RadialTeleportModClient::onRegisterGuiLayers);
-        modEventBus.addListener(RadialTeleportModClient::onRegisterPayloads);
+        modEventBus.addListener(RadialTeleportModClient::onRegisterClientPayloads);
         modEventBus.addListener(RadialTeleportKeyBindings::register);
 
         NeoForge.EVENT_BUS.addListener(RadialTeleportModClient::onClientTick);
@@ -53,42 +52,28 @@ public class RadialTeleportModClient {
         );
     }
 
-    private static void onRegisterPayloads(RegisterPayloadHandlersEvent event) {
-        PayloadRegistrar registrar = event.registrar("1");
+    private static void onRegisterClientPayloads(RegisterClientPayloadHandlersEvent event) {
+        event.register(TeleportDestinationsPayload.TYPE, (payload, context) -> {
+            Minecraft mc = Minecraft.getInstance();
+            mc.execute(() -> RadialTeleportSession.updateDestinations(payload));
+        });
 
-        registrar.playToClient(
-                TeleportDestinationsPayload.TYPE,
-                TeleportDestinationsPayload.STREAM_CODEC,
-                (payload, context) -> {
-                    Minecraft mc = Minecraft.getInstance();
-                    mc.execute(() -> RadialTeleportSession.updateDestinations(payload));
+        event.register(TeleportResultPayload.TYPE, (payload, context) -> {
+            Minecraft mc = Minecraft.getInstance();
+            mc.execute(() -> {
+                if (mc.player != null) {
+                    mc.player.sendSystemMessage(payload.toComponent());
                 }
-        );
+                if (payload.success()) {
+                    RadialTeleportSession.end(mc);
+                }
+            });
+        });
 
-        registrar.playToClient(
-                TeleportResultPayload.TYPE,
-                TeleportResultPayload.STREAM_CODEC,
-                (payload, context) -> {
-                    Minecraft mc = Minecraft.getInstance();
-                    mc.execute(() -> {
-                        if (mc.player != null) {
-                        mc.player.sendSystemMessage(payload.toComponent());
-                        }
-                        if (payload.success()) {
-                            RadialTeleportSession.end(mc);
-                        }
-                    });
-                }
-        );
-
-        registrar.playToClient(
-                WaypointListPayload.TYPE,
-                WaypointListPayload.STREAM_CODEC,
-                (payload, context) -> {
-                    Minecraft mc = Minecraft.getInstance();
-                    mc.execute(() -> WaypointEditScreen.applyList(payload.waypoints()));
-                }
-        );
+        event.register(WaypointListPayload.TYPE, (payload, context) -> {
+            Minecraft mc = Minecraft.getInstance();
+            mc.execute(() -> WaypointEditScreen.applyList(payload.waypoints()));
+        });
     }
 
     private static void onClientTick(ClientTickEvent.Post event) {
