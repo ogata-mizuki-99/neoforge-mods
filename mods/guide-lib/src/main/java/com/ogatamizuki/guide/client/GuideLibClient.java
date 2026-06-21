@@ -76,12 +76,14 @@ public final class GuideLibClient {
 
     public static void ensureDataLoaded() {
         GuideDataReloader.reloadFrom(Minecraft.getInstance().getResourceManager());
+        GuideRecipeCache.ensureLoaded();
     }
 
     private static void invalidateModJarCaches() {
         GuideBookLoader.invalidateModJarCache();
         GuideThemeLoader.invalidateModJarCache();
         GuideManualLoader.invalidateModJarCache();
+        GuideRecipeCache.invalidateModJarCache();
     }
 
     public static void playOpenSound(GuideTheme theme) {

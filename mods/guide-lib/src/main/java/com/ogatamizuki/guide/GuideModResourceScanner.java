@@ -25,8 +25,13 @@ public final class GuideModResourceScanner {
     private static final Pattern GUIDE_BOOK = Pattern.compile("^data/([a-z0-9_.-]+)/guide/([a-z0-9_.-]+)\\.json$");
     private static final Pattern GUIDE_THEME = Pattern.compile("^data/([a-z0-9_.-]+)/guide/themes/([a-z0-9_.-]+)\\.json$");
     private static final Pattern GUIDE_MANUAL = Pattern.compile("^data/([a-z0-9_.-]+)/guide/manuals/([a-z0-9_.-]+)\\.json$");
+    private static final Pattern RECIPE = Pattern.compile("^data/([a-z0-9_.-]+)/recipe/([a-z0-9_.-]+)\\.json$");
 
     private GuideModResourceScanner() {}
+
+    public static Map<Identifier, JsonElement> scanRecipeJson() {
+        return scanJson(RECIPE, GuideModResourceScanner::recipeIdFor);
+    }
 
     public static Map<Identifier, JsonElement> scanGuideThemeJson() {
         return scanJson(GUIDE_THEME, GuideModResourceScanner::themeIdFor);
@@ -88,6 +93,10 @@ public final class GuideModResourceScanner {
     }
 
     private static Identifier manualIdFor(String path, Matcher matcher) {
+        return Identifier.fromNamespaceAndPath(matcher.group(1), matcher.group(2));
+    }
+
+    private static Identifier recipeIdFor(String path, Matcher matcher) {
         return Identifier.fromNamespaceAndPath(matcher.group(1), matcher.group(2));
     }
 

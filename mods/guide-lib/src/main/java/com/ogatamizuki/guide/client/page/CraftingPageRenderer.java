@@ -156,14 +156,16 @@ public class CraftingPageRenderer implements PageRenderer {
     }
 
     private static RecipeHolder<CraftingRecipe> findCraftingRecipe(Minecraft mc, Identifier recipeId) {
+        RecipeHolder<CraftingRecipe> fromCache = GuideRecipeCache.get(recipeId);
+        if (fromCache != null) {
+            return fromCache;
+        }
+
         RecipeManager recipeManager = resolveRecipeManager(mc);
         if (recipeManager != null) {
-            RecipeHolder<CraftingRecipe> fromManager = lookupInManager(recipeManager, recipeId);
-            if (fromManager != null) {
-                return fromManager;
-            }
+            return lookupInManager(recipeManager, recipeId);
         }
-        return GuideRecipeCache.get(recipeId);
+        return null;
     }
 
     private static RecipeHolder<CraftingRecipe> lookupInManager(RecipeManager recipeManager, Identifier recipeId) {
