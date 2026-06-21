@@ -9,15 +9,20 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GuideThemeLoader extends SimplePreparableReloadListener<Map<Identifier, GuideTheme>> {
     public static final Identifier LISTENER_ID = Identifier.fromNamespaceAndPath(GuideLibMod.MODID, "guide_themes");
+
+    private static Map<Identifier, JsonObject> cachedModJarThemes;
 
     @Override
     protected Map<Identifier, GuideTheme> prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
@@ -26,11 +31,46 @@ public class GuideThemeLoader extends SimplePreparableReloadListener<Map<Identif
 
     @Override
     protected void apply(Map<Identifier, GuideTheme> loaded, ResourceManager resourceManager, ProfilerFiller profiler) {
-        GuideThemeRegistry.setThemes(loaded);
-        GuideLibMod.LOGGER.info("Loaded {} guide theme(s)", loaded.size());
+        GuideDataReloader.applyThemes(loaded);
     }
 
     public static Map<Identifier, GuideTheme> loadThemes(ResourceManager resourceManager) {
+        Map<Identifier, JsonObject> rawThemes = new LinkedHashMap<>();
+        if (FMLEnvironment.getDist() == Dist.CLIENT) {
+            rawThemes.putAll(loadThemeJsonFromModJars());
+        }
+        rawThemes.putAll(loadThemeJsonFromResourceManager(resourceManager));
+
+        Map<Identifier, GuideTheme> resolved = new LinkedHashMap<>();
+        for (Map.Entry<Identifier, JsonObject> entry : rawThemes.entrySet()) {
+            try {
+                resolved.put(entry.getKey(), resolveTheme(entry.getKey(), entry.getValue(), rawThemes, resolved));
+            } catch (JsonParseException e) {
+                GuideLibMod.LOGGER.error("Failed to resolve guide theme {}", entry.getKey(), e);
+            }
+        }
+        return resolved;
+    }
+
+    public static Map<Identifier, JsonObject> loadThemeJsonFromModJars() {
+        if (cachedModJarThemes == null) {
+            Map<Identifier, JsonObject> loaded = new LinkedHashMap<>();
+            GuideModResourceScanner.scanGuideThemeJson().forEach((id, json) -> {
+                if (json.isJsonObject()) {
+                    loaded.put(id, json.getAsJsonObject());
+                }
+            });
+            cachedModJarThemes = Collections.unmodifiableMap(loaded);
+            GuideLibMod.LOGGER.info("Indexed {} guide theme(s) from mod jars", cachedModJarThemes.size());
+        }
+        return cachedModJarThemes;
+    }
+
+    public static void invalidateModJarCache() {
+        cachedModJarThemes = null;
+    }
+
+    private static Map<Identifier, JsonObject> loadThemeJsonFromResourceManager(ResourceManager resourceManager) {
         Map<Identifier, JsonObject> rawThemes = new LinkedHashMap<>();
 
         for (Map.Entry<Identifier, List<Resource>> entry : resourceManager.listResourceStacks(
@@ -57,15 +97,7 @@ public class GuideThemeLoader extends SimplePreparableReloadListener<Map<Identif
             }
         }
 
-        Map<Identifier, GuideTheme> resolved = new LinkedHashMap<>();
-        for (Map.Entry<Identifier, JsonObject> entry : rawThemes.entrySet()) {
-            try {
-                resolved.put(entry.getKey(), resolveTheme(entry.getKey(), entry.getValue(), rawThemes, resolved));
-            } catch (JsonParseException e) {
-                GuideLibMod.LOGGER.error("Failed to resolve guide theme {}", entry.getKey(), e);
-            }
-        }
-        return resolved;
+        return rawThemes;
     }
 
     private static GuideTheme resolveTheme(

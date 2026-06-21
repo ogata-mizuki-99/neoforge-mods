@@ -10,15 +10,20 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GuideManualLoader extends SimplePreparableReloadListener<Map<Identifier, GuideManualDefinition>> {
     public static final Identifier LISTENER_ID = Identifier.fromNamespaceAndPath(GuideLibMod.MODID, "guide_manuals");
+
+    private static Map<Identifier, GuideManualDefinition> cachedModJarManuals;
 
     @Override
     protected Map<Identifier, GuideManualDefinition> prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
@@ -27,11 +32,45 @@ public class GuideManualLoader extends SimplePreparableReloadListener<Map<Identi
 
     @Override
     protected void apply(Map<Identifier, GuideManualDefinition> loaded, ResourceManager resourceManager, ProfilerFiller profiler) {
-        GuideManualRegistry.setManuals(loaded);
-        GuideLibMod.LOGGER.info("Loaded {} guide manual(s)", loaded.size());
+        GuideDataReloader.applyManuals(loaded);
     }
 
     public static Map<Identifier, GuideManualDefinition> loadManuals(ResourceManager resourceManager) {
+        Map<Identifier, GuideManualDefinition> manuals = new LinkedHashMap<>();
+        if (FMLEnvironment.getDist() == Dist.CLIENT) {
+            manuals.putAll(loadManualsFromModJars());
+        }
+        manuals.putAll(loadManualsFromResourceManager(resourceManager));
+        return manuals;
+    }
+
+    public static Map<Identifier, GuideManualDefinition> loadManualsFromModJars() {
+        if (cachedModJarManuals == null) {
+            Map<Identifier, GuideManualDefinition> loaded = new LinkedHashMap<>();
+            GuideModResourceScanner.scanGuideManualJson().forEach((manualId, json) -> {
+                if (!json.isJsonObject()) {
+                    return;
+                }
+                try {
+                    GuideManualDefinition manual = parseManual(manualId, json.getAsJsonObject());
+                    if (manual != null) {
+                        loaded.put(manual.itemId(), manual);
+                    }
+                } catch (JsonParseException e) {
+                    GuideLibMod.LOGGER.error("Failed to load guide manual {}", manualId, e);
+                }
+            });
+            cachedModJarManuals = Collections.unmodifiableMap(loaded);
+            GuideLibMod.LOGGER.info("Indexed {} guide manual(s) from mod jars", cachedModJarManuals.size());
+        }
+        return cachedModJarManuals;
+    }
+
+    public static void invalidateModJarCache() {
+        cachedModJarManuals = null;
+    }
+
+    private static Map<Identifier, GuideManualDefinition> loadManualsFromResourceManager(ResourceManager resourceManager) {
         Map<Identifier, GuideManualDefinition> manuals = new LinkedHashMap<>();
 
         for (Map.Entry<Identifier, List<Resource>> entry : resourceManager.listResourceStacks(

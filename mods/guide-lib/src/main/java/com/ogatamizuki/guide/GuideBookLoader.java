@@ -15,18 +15,23 @@ import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.server.packs.resources.ResourceManager;
 import net.minecraft.server.packs.resources.SimplePreparableReloadListener;
 import net.minecraft.util.profiling.ProfilerFiller;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.loading.FMLEnvironment;
 
 import javax.annotation.Nullable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class GuideBookLoader extends SimplePreparableReloadListener<Map<Identifier, GuideBook>> {
     public static final Identifier LISTENER_ID = Identifier.fromNamespaceAndPath(GuideLibMod.MODID, "guide_books");
+
+    private static Map<Identifier, GuideBook> cachedModJarBooks;
 
     @Override
     protected Map<Identifier, GuideBook> prepare(ResourceManager resourceManager, ProfilerFiller profiler) {
@@ -35,11 +40,35 @@ public class GuideBookLoader extends SimplePreparableReloadListener<Map<Identifi
 
     @Override
     protected void apply(Map<Identifier, GuideBook> books, ResourceManager resourceManager, ProfilerFiller profiler) {
-        GuideBookRegistry.setBooks(books);
-        GuideLibMod.LOGGER.info("Loaded {} guide book(s)", books.size());
+        GuideDataReloader.applyBooks(books);
     }
 
     public static Map<Identifier, GuideBook> loadBooks(ResourceManager resourceManager) {
+        Map<Identifier, GuideBook> books = new LinkedHashMap<>();
+        if (FMLEnvironment.getDist() == Dist.CLIENT) {
+            books.putAll(loadBooksFromModJars());
+        }
+        books.putAll(loadBooksFromResourceManager(resourceManager));
+        return books;
+    }
+
+    public static Map<Identifier, GuideBook> loadBooksFromModJars() {
+        if (cachedModJarBooks == null) {
+            Map<Identifier, GuideBook> loaded = GuideModResourceScanner.scanGuideBooks(
+                    GuideBookLoader::parseBook,
+                    GuideBook::id
+            );
+            cachedModJarBooks = Collections.unmodifiableMap(loaded);
+            GuideLibMod.LOGGER.info("Indexed {} guide book(s) from mod jars", cachedModJarBooks.size());
+        }
+        return cachedModJarBooks;
+    }
+
+    public static void invalidateModJarCache() {
+        cachedModJarBooks = null;
+    }
+
+    private static Map<Identifier, GuideBook> loadBooksFromResourceManager(ResourceManager resourceManager) {
         Map<Identifier, GuideBook> books = new LinkedHashMap<>();
 
         for (Map.Entry<Identifier, List<Resource>> entry : resourceManager.listResourceStacks("guide", path -> path.getPath().endsWith(".json")).entrySet()) {

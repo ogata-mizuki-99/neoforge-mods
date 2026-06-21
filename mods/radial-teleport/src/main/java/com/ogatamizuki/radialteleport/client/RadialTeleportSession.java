@@ -28,6 +28,7 @@ public final class RadialTeleportSession {
         clientTick = 0;
         lastRefreshTick = Integer.MIN_VALUE;
         RadialTeleportMouseCapture.captureForRadialMenu(mc);
+        refreshDestinationsLocal(mc);
         requestDestinationsFromServer(mc);
     }
 
@@ -90,6 +91,14 @@ public final class RadialTeleportSession {
 
     public static boolean shouldRefreshLocal(Minecraft mc) {
         return active && clientTick - lastRefreshTick >= REFRESH_INTERVAL_TICKS;
+    }
+
+    public static void refreshDisplayNames(Minecraft mc) {
+        if (!active || destinations.isEmpty()) {
+            return;
+        }
+        applyDestinations(mc, enrichDisplayNames(mc, destinations));
+        lastRefreshTick = clientTick;
     }
 
     private static List<TeleportDestination> enrichDisplayNames(Minecraft mc, List<TeleportDestination> destinations) {

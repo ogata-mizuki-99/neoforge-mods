@@ -84,11 +84,20 @@ public class NicknameMod {
 
     @SubscribeEvent
     public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.getEntity() instanceof ServerPlayer player) {
-            // ログインした本人に対して、自身のニックネームがあれば同期
-            String nick = NicknameStorage.getNickname(player.getUUID());
+        if (!(event.getEntity() instanceof ServerPlayer player)) {
+            return;
+        }
+
+        MinecraftServer server = player.level().getServer();
+        if (server == null) {
+            return;
+        }
+
+        // ログイン直後に Tab 上の他プレイヤー表示名（radial-teleport 等）を安定させる
+        for (ServerPlayer online : server.getPlayerList().getPlayers()) {
+            String nick = NicknameStorage.getNickname(online.getUUID());
             if (nick != null && !nick.isEmpty()) {
-                PacketDistributor.sendToPlayer(player, new NicknameSyncPayload(player.getUUID(), nick));
+                PacketDistributor.sendToPlayer(player, new NicknameSyncPayload(online.getUUID(), nick));
             }
         }
     }

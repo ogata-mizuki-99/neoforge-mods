@@ -97,6 +97,7 @@ public class RadialTeleportModClient {
         } else if (usingCompass) {
             RadialTeleportSession.tick(player);
             if (RadialTeleportSession.shouldRefreshLocal(mc)) {
+                RadialTeleportSession.refreshDisplayNames(mc);
                 RadialTeleportSession.requestDestinationsFromServer(mc);
             }
         }
