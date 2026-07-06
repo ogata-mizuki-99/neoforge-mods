@@ -21,7 +21,7 @@ import java.util.Map;
  * RecipeManager が変わったときだけ全レシピを1回走査して構築する。
  */
 public final class DeconstructorRecipeIndex {
-    public record Entry(RecipeHolder<CraftingRecipe> recipe, List<Ingredient> ingredients) {}
+    public record Entry(RecipeHolder<CraftingRecipe> recipe, List<Ingredient> ingredients, int recipeOutputCount) {}
 
     private static final CraftingInput DUMMY_INPUT = CraftingInput.of(3, 3, List.of(
             ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY,
@@ -45,6 +45,17 @@ public final class DeconstructorRecipeIndex {
     public static void invalidate() {
         indexedManager = null;
         index = Map.of();
+    }
+
+    private static boolean containsOutputAsIngredient(Item resultItem, List<Ingredient> ingredients) {
+        for (Ingredient ingredient : ingredients) {
+            @SuppressWarnings("deprecation")
+            var holders = ingredient.items();
+            if (holders.anyMatch(holder -> holder.value() == resultItem)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private static void ensureBuilt(RecipeManager recipeManager) {
@@ -75,9 +86,12 @@ public final class DeconstructorRecipeIndex {
                 if (ingredients.isEmpty()) {
                     continue;
                 }
+                if (containsOutputAsIngredient(resultItem, ingredients)) {
+                    continue;
+                }
                 @SuppressWarnings("unchecked")
                 RecipeHolder<CraftingRecipe> craftingHolder = (RecipeHolder<CraftingRecipe>) holder;
-                newIndex.put(resultItem, new Entry(craftingHolder, ingredients));
+                newIndex.put(resultItem, new Entry(craftingHolder, ingredients, result.getCount()));
             }
             index = Collections.unmodifiableMap(newIndex);
             indexedManager = recipeManager;
@@ -86,7 +100,8 @@ public final class DeconstructorRecipeIndex {
 
     private static ItemStack resolveResult(CraftingRecipe recipe) {
         if (recipe instanceof ShapelessRecipe shapelessRecipe) {
-            return shapelessRecipe.result().create();
+            var result = shapelessRecipe.result();
+            return result.create();
         }
         try {
             return recipe.assemble(DUMMY_INPUT);

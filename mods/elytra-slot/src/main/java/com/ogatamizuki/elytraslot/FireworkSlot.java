@@ -8,31 +8,31 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.server.level.ServerPlayer;
 
-public class ElytraSlot extends Slot {
+public class FireworkSlot extends Slot {
     private final Player player;
     private static final Container DUMMY = new SimpleContainer(1);
 
-    public ElytraSlot(Player player, int x, int y) {
+    public FireworkSlot(Player player, int x, int y) {
         super(DUMMY, 0, x, y);
         this.player = player;
     }
 
     @Override
     public boolean mayPlace(ItemStack stack) {
-        return stack.is(Items.ELYTRA);
+        return stack.is(Items.FIREWORK_ROCKET);
     }
 
     @Override
     public ItemStack getItem() {
-        return this.player.getData(ElytraSlotMod.ELYTRA_SLOT);
+        return this.player.getData(ElytraSlotMod.FIREWORK_SLOT);
     }
 
     @Override
     public void set(ItemStack stack) {
-        this.player.setData(ElytraSlotMod.ELYTRA_SLOT, stack);
+        this.player.setData(ElytraSlotMod.FIREWORK_SLOT, stack);
         this.setChanged();
         if (!this.player.level().isClientSide() && this.player instanceof ServerPlayer serverPlayer) {
-            ElytraSlotMod.syncSlot(serverPlayer, stack);
+            ElytraSlotMod.syncFireworkSlot(serverPlayer, stack);
         }
     }
 
@@ -55,13 +55,11 @@ public class ElytraSlot extends Slot {
         if (!CustomSlotVisibility.isActive(this.player)) {
             return null;
         }
-        return net.minecraft.resources.Identifier.fromNamespaceAndPath("elytra_slot", "container/slot/empty_elytra_slot");
+        return net.minecraft.resources.Identifier.fromNamespaceAndPath("elytra_slot", "container/slot/empty_firework_slot");
     }
-
 
     @Override
     public ItemStack remove(int amount) {
-
         ItemStack current = this.getItem();
         if (current.isEmpty()) {
             return ItemStack.EMPTY;

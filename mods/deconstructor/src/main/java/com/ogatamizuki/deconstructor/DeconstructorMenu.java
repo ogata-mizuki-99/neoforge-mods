@@ -29,7 +29,7 @@ public class DeconstructorMenu extends AbstractContainerMenu {
     };
 
     private final int maxExtractCount;
-    private final net.minecraft.world.inventory.ContainerData data = new net.minecraft.world.inventory.SimpleContainerData(1);
+    private final net.minecraft.world.inventory.ContainerData data = new net.minecraft.world.inventory.SimpleContainerData(2);
     private boolean isUpdatingRecipe = false;
 
     public DeconstructorMenu(int containerId, Inventory playerInventory, BlockPos pos) {
@@ -97,6 +97,14 @@ public class DeconstructorMenu extends AbstractContainerMenu {
         this.data.set(0, val);
     }
 
+    public int getRecipeOutputCount() {
+        return this.data.get(1);
+    }
+
+    public void setRecipeOutputCount(int val) {
+        this.data.set(1, val);
+    }
+
     @Override
     public void slotsChanged(net.minecraft.world.Container container) {
         super.slotsChanged(container);
@@ -157,6 +165,7 @@ public class DeconstructorMenu extends AbstractContainerMenu {
 
         ItemStack input = this.container.getItem(0);
         if (input.isEmpty()) {
+            setRecipeOutputCount(1);
             clearPreviewSlots();
             isUpdatingRecipe = false;
             return;
@@ -175,8 +184,10 @@ public class DeconstructorMenu extends AbstractContainerMenu {
         );
 
         if (entry != null) {
+            setRecipeOutputCount(entry.recipeOutputCount());
             applyIngredientsToPreview(entry.ingredients());
         } else {
+            setRecipeOutputCount(1);
             clearPreviewSlots();
         }
 
@@ -201,10 +212,11 @@ public class DeconstructorMenu extends AbstractContainerMenu {
     }
 
     public boolean canExtract() {
-        boolean inputNotEmpty = !container.getItem(0).isEmpty();
+        ItemStack input = container.getItem(0);
         int currentCount = getCurrentExtractCount();
-        boolean can = (inputNotEmpty || currentCount > 0) && currentCount < maxExtractCount;
-        return can;
+        int reqCount = getRecipeOutputCount();
+        boolean hasInput = (currentCount > 0) || (!input.isEmpty() && input.getCount() >= reqCount);
+        return hasInput && currentCount < maxExtractCount;
     }
 
     public void onPreviewTaken(int index, ItemStack takenStack) {
@@ -212,16 +224,20 @@ public class DeconstructorMenu extends AbstractContainerMenu {
 
         ItemStack input = this.container.getItem(0);
         int currentCount = getCurrentExtractCount();
-        if ((!input.isEmpty() || currentCount > 0) && currentCount < maxExtractCount) {
+        int reqCount = getRecipeOutputCount();
+
+        if (canExtract()) {
             // slotsChangedでのリセットを防ぐため、先に回収カウントを増加させる
             setCurrentExtractCount(currentCount + 1);
             currentCount++;
 
-            // 入力アイテムを1つ減らす
-            if (!input.isEmpty()) {
-                input.shrink(1);
-                this.container.setItem(0, input.copy());
-                blockEntity.setInputStackIfChanged(input.copy());
+            // 入力アイテムを減らす（最初の抽出タイミングのみ必要数分消費）
+            if (currentCount == 1) {
+                if (!input.isEmpty()) {
+                    input.shrink(reqCount);
+                    this.container.setItem(0, input.copy());
+                    blockEntity.setInputStackIfChanged(input.copy());
+                }
             }
 
             // 取り出されたプレビュースロットを空にする

@@ -12,6 +12,8 @@
     "HumanoidMobRendererMixin"
   ],
   "client": [
+    "client.CreativeModeInventoryScreenMixin",
+    "client.SlotWrapperMixin"
   ],
   "injectors": {
     "defaultRequire": 1

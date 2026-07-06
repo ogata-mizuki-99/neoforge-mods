@@ -29,6 +29,9 @@ public class LivingEntityMixin {
                     }
                 }
                 if (isFlightCheck) {
+                    if (player.isShiftKeyDown()) {
+                        return; // Sneaking/shifting cancels flight by not reporting elytra in the custom slot
+                    }
                     ItemStack elytra = player.getData(ElytraSlotMod.ELYTRA_SLOT);
                     if (elytra.is(Items.ELYTRA)) {
                         cir.setReturnValue(elytra);

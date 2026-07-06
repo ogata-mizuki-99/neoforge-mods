@@ -10,4 +10,15 @@ subprojects {
     tasks.withType(ProcessResources).configureEach {
         filteringCharset = 'UTF-8'
     }
+
+    // IDE resolves project dependencies to build/libs/<project.name>-*.jar.
+    // Individual mods set archivesName from mod_id (underscores); align with Gradle project names.
+    plugins.withId('net.neoforged.moddev') {
+        afterEvaluate {
+            base {
+                archivesName = "${project.name}-${minecraft_version}"
+            }
+        }
+    }
 }
+

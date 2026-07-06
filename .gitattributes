@@ -1,0 +1,21 @@
+# Set default behavior to normalize all text files to LF on commit
+* text=auto
+
+# Force standard text files to use LF line endings
+*.java text eol=lf
+*.gradle text eol=lf
+*.properties text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=lf
+
+# Force Windows batch files to use CRLF line endings
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files
+*.png binary
+*.jar binary
+*.gif binary
+*.jpg binary
