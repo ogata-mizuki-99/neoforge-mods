@@ -20,7 +20,6 @@ jobs:
           - elytra-slot
           - private-chest
           - nickname
-          - economy
     steps:
       - uses: actions/checkout@v4
 
